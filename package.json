@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
-    "eslint": "^8.34.0",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint": "^8.34.0"
   }
 }
