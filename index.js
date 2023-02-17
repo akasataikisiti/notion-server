@@ -1,12 +1,14 @@
 const express = require("express")
 const mongoose = require("mongoose")
-const CryptoJS = require("crepto-js")
+const CryptoJS = require("crypto-js")
 const JWT = require("jsonwebtoken")
 const User = require("./src/v1/models/user")
 const app = express()
 const PORT = 6001
 require("dotenv").config()
 
+app.use(express.json())
+mongoose.set('strictQuery', false);
 //DB接続
 try {
   mongoose.connect(process.env.MONGODB_URL)
