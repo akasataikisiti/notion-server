@@ -2,7 +2,9 @@ const router = require("express").Router()
 const CryptoJS = require("crypto-js")
 const JWT = require("jsonwebtoken")
 const { body, validationResult } = require("express-validator")
+
 const User = require("../models/user")
+const validation = require("../../handlers/validation")
 
 //ユーザー新規登録API
 router.post("/register",
@@ -22,13 +24,7 @@ router.post("/register",
       }
     })
   }),
-  (req, res, next) => {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() })
-    }
-    next()
-  },
+  validation.validate,
   async (req, res) => {
     // パスワード受け取り
     const password = req.body.password
