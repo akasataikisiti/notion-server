@@ -44,7 +44,7 @@ exports.login = async (req, res) => {
 
     ).toString(CryptoJS.enc.Utf8)
     if (decryptedPassword !== password) {
-      res.status(401).json({
+      return res.status(401).json({
         errors: {
           param: "password",
           message: "パスワードが無効です"
