@@ -42,7 +42,7 @@ exports.login = async (req, res) => {
       user.password,
       process.env.SECRET_KEY
 
-    )
+    ).toString(CryptoJS.enc.Utf8)
     if (decryptedPassword !== password) {
       res.status(401).json({
         errors: {
