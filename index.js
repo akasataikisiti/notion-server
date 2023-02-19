@@ -10,7 +10,7 @@ app.use(cors({
 }))
 app.use(express.json())
 
-app.use("/api/v1", require("./src/v1/routes/auth"))
+app.use("/api/v1", require("./src/v1/routes"))
 
 mongoose.set('strictQuery', false);
 //DB接続
