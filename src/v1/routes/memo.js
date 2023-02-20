@@ -7,9 +7,12 @@ router.post("/", tokenHandler.verifyToken, memoController.create)
 
 // ログインユーザが投稿したメモを全て取得
 router.get("/", tokenHandler.verifyToken, memoController.getAll)
-//
+
 // ログインユーザが投稿したメモを一つ取得
 router.get("/:memoId", tokenHandler.verifyToken, memoController.getOne)
+
+// ログインユーザが投稿したメモを一更新
+router.put("/:memoId", tokenHandler.verifyToken, memoController.update)
 
 module.exports = router
 
